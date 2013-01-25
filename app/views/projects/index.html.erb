@@ -1,0 +1,72 @@
+<div id="page_title">
+  <span class="text-info"> Projects List </span>
+</div>
+<div id="content">
+  <div id="article_list">
+    <ul>
+      <% @projects.each do |project| %>
+        <li class="article">
+          <span class="art_title"> <%= project.name %> </span>
+          <div class="divider"></div>
+          <%= image_tag(project.image_url, :class => "project_img") %>
+          <div class="art_detail">
+            <span class="post text-info"> <b> Name: </b> <%= project.title %> </span> <br/>
+            <span class="submit_date post text-info"> <b> Project Url: </b> <%= link_to(truncate(project.url, :length => 30, :omission => '...'), project.url) %> </span> <br/>
+            <%= link_to("Detail View", project, :class => "btn right", :remote => true, :style => "margin-top: 5px;") %>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function()
+  {
+
+    $(".article").hover(
+    function()
+    {
+      $(this).children(".art_detail").show().animate(
+      {
+        height: "80px"
+      }, 200);
+    },
+    function()
+    {
+      $(this).children(".art_detail").hide().animate(
+      {
+        height: "0px"
+      }, 200);
+    });
+
+    $("#article_form").click(function()
+    {
+      alert("ok");
+      load_form();
+    });
+
+    $(".edit").click(function()
+    {
+      id = $(this).attr("id");
+      edit_form(id);
+    });
+  });
+
+  function edit_form(id)
+  {
+    $.ajax({
+      url: "/articles/"+id+"/edit",
+      type: 'get',
+      dataType: 'script'
+    });
+  }
+
+  function load_form()
+  {
+    $.ajax({
+      url: "<%= new_article_path %>",
+      type: 'get',
+      dataType: 'script'
+    });
+  }
+</script>

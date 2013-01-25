@@ -1,0 +1,264 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+*/
+.user_info
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("/assets/user_info.png") no-repeat scroll left top #FFFFFF;
+    border-color: -moz-use-text-color -moz-use-text-color #CCCCCC;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    padding: 21px 0 4px;
+}
+
+.slides_container {
+    width:950px;
+    height:150px;
+    margin: 5px 0;
+}
+
+.slides_container div {
+    width:960px;
+    height:150px;
+    display:block;
+}
+.slides_container div img
+{
+    height: 150px;
+    width: 960px;
+}
+
+.pagination li {
+    float: left;
+    list-style: none outside none;
+    margin: 0 1px;
+}
+.pagination li a
+{
+    background-image: url("/assets/slide/pagination.png");
+    background-position: 0 0;
+    display: block;
+    float: left;
+    height: 0;
+    overflow: hidden;
+    padding-top: 12px;
+    width: 12px;
+}
+
+.pagination li.current a {
+    background-position:0 -12px;
+}
+
+.pagination
+{
+    position: absolute;
+    top: 0;
+    z-index: 9;
+}
+
+#slides
+{
+    position: relative;
+}
+
+.ToolBar
+{
+    width: 100% !important;
+}
+
+.navbar-inverse .nav > li > a:focus, .navbar-inverse .nav > li > a:hover
+{
+    background-color: #333 !important;
+}
+
+.navbar-inverse .divider-vertical {
+    border-left-color: #555555 !important;
+    border-right-color: #333333 !important;
+}
+
+ul.pull-right
+{
+    margin: 0;
+}
+
+
+.navbar .pull-right > li > .dropdown-menu:after, .nav > li > .dropdown-menu.pull-right:after {
+    left: auto;
+    right: 13px;
+}
+.nav > li > .dropdown-menu:after {
+    border-bottom: 6px solid #FFFFFF;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: inline-block;
+    left: 10px;
+    position: absolute;
+    top: -6px;
+}
+
+#edit_user
+{
+
+}
+
+#user_edit
+{
+    padding: 10px;
+}
+
+#general_info
+{
+    display: inline-block;
+}
+
+#edit_image
+{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+}
+
+#edit_image .picture
+{
+    width: 175px;
+    height: 125px;
+}
+
+#content form
+{
+    margin: 0 !important;
+}
+
+#content form label
+{
+    display: inline-block !important;
+    min-width: 200px !important;
+}
+
+.field_with_errors
+{
+    display: inline-block;
+    background-color: red;
+}
+
+a.dropdown-toggle
+{
+    padding: 0 !important;
+}
+
+a.dropdown-toggle:hover
+{
+    background: none !important;
+}
+
+.divider {
+    background-color: #E5E5E5;
+    border-bottom: 1px solid #FFFFFF;
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+}
+
+.field
+{
+    vertical-align: middle;
+}
+
+
+#project_description
+{
+    width: 417px;
+    height: 120px;
+}
+
+.project_form
+{
+    padding: 10px;
+}
+
+.project_label, .project_image
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.project_image .picture
+{
+    width: 225px;
+    height: 150px;
+}
+
+
+
+
+
+
+
+
+.tip
+{
+    position: absolute;
+    background-color: white;
+    float: right;
+    left: 20px;
+    top: -5px;
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+    padding: 5px;
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.tip_right
+{
+    position: relative;
+    vertical-align: baseline !important;
+}
+
+.tip:after {
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #FFFFFF;
+    border-top: 6px solid transparent;
+    content: "";
+    display: inline-block;
+    left: -6px;
+    position: absolute;
+    top: 50%;
+}
+
+.error
+{
+    background-color: #EE5F5B;
+}
+
+.info
+{
+    background-color: #49AFCD;
+}
+
+.warning
+{
+    background-color: #FAA732;
+}
+
+.success
+{
+    background-color: #5BB75B;
+}

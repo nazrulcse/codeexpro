@@ -1,0 +1,81 @@
+<div id="content">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div id="user_edit">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div id="general_info">
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <%= f.label :countre %>
+          <%= f.text_field :country %>
+        </div>
+        
+      </div>
+      <div id="edit_image">
+        <div class="picture">
+          <%= image_tag(current_user.image_url, :class => 'picture') %>
+        </div>
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <%= f.label :zip %>
+        <%= f.text_field :zip %>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <span class="icon-info-sign tip_right"> </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field"><%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password %> <span class="icon-info-sign tip_right current_pass"> </span>
+      </div>
+
+      <div>
+        <%= f.submit "Update", :class => "btn right" %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+  <%= link_to "Back", :back %>
+
+
+  <script type="text/javascript">
+    $(".icon-info-sign").tips({message: "leave blank if you don't want to change it"});
+    $(".current_pass").tips({message: "we need your current password to confirm your changes"});
+  </script>
+</div>

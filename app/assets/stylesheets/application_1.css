@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+.user_info
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("/assets/user_info.png") no-repeat scroll left top #FFFFFF;
+    border-color: -moz-use-text-color -moz-use-text-color #CCCCCC;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    padding: 21px 0 4px;
+}
+
+.slides_container {
+    width:950px;
+    height:150px;
+    margin: 5px 0;
+}
+
+.slides_container div {
+    width:960px;
+    height:150px;
+    display:block;
+}
+.slides_container div img
+{
+    height: 150px;
+    width: 960px;
+}
+
+.pagination li {
+    float: left;
+    list-style: none outside none;
+    margin: 0 1px;
+}
+.pagination li a
+{
+    background-image: url("/assets/slide/pagination.png");
+    background-position: 0 0;
+    display: block;
+    float: left;
+    height: 0;
+    overflow: hidden;
+    padding-top: 12px;
+    width: 12px;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+.pagination
+{
+    position: absolute;
+    top: 0;
+    z-index: 9;
+}
+
+#slides
+{
+    position: relative;
+}

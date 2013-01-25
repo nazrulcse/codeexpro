@@ -1,0 +1,69 @@
+<div id="page_title">
+  <%= link_to('Post An Article', "#", :id => "article_form") %>
+</div>
+<div id="full_content">
+  <div id="article_list">
+    <ul>
+      <% @articles.each do |art| %>
+        <li class="article">
+          <span class="art_title"> <%= art.title %> </span>
+          <%= art.content.html_safe %>
+          <div class="art_detail">
+            <span class="submit_date"> Submit Date: <%= art.created_at.strftime("%d, %B, %Y") %> </span>
+            <span class="post"> Posted By: Md Nazrul Islam </span>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function()
+  {
+    $(".article").hover(
+    function()
+    {
+      $(this).children(".art_detail").show().animate(
+      {
+        height: "100px"
+      }, 200);
+    },
+    function()
+    {
+      $(this).children(".art_detail").hide().animate(
+      {
+        height: "0px"
+      }, 200);
+    });
+
+    $("#article_form").click(function()
+    {
+      alert("ok");
+      load_form();
+    });
+
+    $(".edit").click(function()
+    {
+      id = $(this).attr("id");
+      edit_form(id);
+    });
+  });
+
+  function edit_form(id)
+  {
+    $.ajax({
+      url: "/articles/"+id+"/edit",
+      type: 'get',
+      dataType: 'script'
+    });
+  }
+
+  function load_form()
+  {
+    $.ajax({
+      url: "<%= new_article_path %>",
+      type: 'get',
+      dataType: 'script'
+    });
+  }
+</script>

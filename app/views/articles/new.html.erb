@@ -1,0 +1,44 @@
+<div id="page_title">
+  <%= link_to('Post An Article Link', "#", :id => "article_form") %>
+</div>
+<div id="article_content">
+  <%= form_for(@article) do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="article_content_field">
+      <%= f.label :content %>
+      <%= f.text_area :content, :style => "height: 300px;" %>
+    </div>
+    <div>
+      <%= link_to "Preview", "#", :id =>"preview", :style => "float: left;", :class => "sample btn custom large k" %>
+      <%= f.submit "Post Article", :style => "float: right;", :class => "sample btn custom large k" %>
+    </div>
+  <%end%>
+</div>
+<script type="text/javascript">
+
+
+  $("#preview").click(function()
+  {
+    alert($("#article_title").val());
+    $.ajax({
+      type: "get",
+      url: "<%= preview_articles_path() %>",
+      data: {text: $("#article_content").val(), title: $("#article_title").val()},
+      success: function(html)
+      {
+         $.facebox(html);
+      }
+    });
+  });
+
+  $("textarea").htmlarea({toolbar: ["html", "|", "forecolor", "|", "bold", "italic", "underline", "strikethrough", "|", "subscript", "superscript", "|", "increasefontsize", "decreasefontsize", "orderedlist", "unorderedlist", "|", "indent", "outdent",
+      "justifyleft", "justifycenter", "justifyright",
+      "link", "unlink", "image", "horizontalrule",
+      "p", "h1", "h2", "h3", "h4", "h5", "h6",
+      "cut", "copy", "paste"]});
+
+  //jHtmlAreaColorPickerMenu.defaultOptions.colors = ["red", "yellow", "blue", "green", "purple", "white", "black"];
+</script>

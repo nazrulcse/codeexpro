@@ -1,0 +1,60 @@
+<div class="project_form">
+  <%= form_for(@project) do |f| %>
+    <% if @project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+        <ul>
+          <% @project.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <%= f.label :url, "Project Url" %>
+      <%= f.url_field :url %>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <div class="project_label">
+        <%= f.label :image, "Project Screen Shot" %>
+      </div>
+
+      <div class="project_image">
+        <%= image_tag(@project.image_url, :class => "picture") if !@project.new_record? %>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="actions right">
+      <%= f.submit :class => "btn" %>
+    </div>
+  <% end %>
+</div>

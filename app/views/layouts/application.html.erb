@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meal</title>
+
+    <%= stylesheet_link_tag "application", "layout", "design", "htmkeditor", "bootstrap", "winform", "viewer"%>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="left_logo">
+        <%= link_to("Meal", root_path(), :class => "logo") %> |
+        <a class="contact"> Contact  </a>
+      </div>
+      <div class="search">
+        <%= render :partial => 'shared/search_form' %>
+        <div class="user_session">
+          <% if current_user.present? %>
+  <%#= link_to("LogOut(#{current_user.name})", destroy_user_session_path()) %>
+
+            <div id="profile_pic">
+  <%#= link_to(image_tag(current_user.image_url), "javascript:void(0);", :id => "p_pic") %>
+              <ul class="nav pull-right">
+                <li class="dropdown open">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= image_tag(current_user.image_url) %></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to("#{current_user.name}", edit_user_registration_path()) %></li>
+                    <li><%= link_to("Log Out", destroy_user_session_path()) %></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          <%else%>
+            <%= link_to("LogIn", new_user_session_path(), :style => "color:#0088CC;") %> |
+            <%= link_to("SignUp", new_user_registration_path(), :style => "color:#0088CC;") %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div class="navbar navbar-inverse" style="position: static; margin-bottom: 0;">
+        <div class="navbar-inner">
+          <div class="nav-collapse collapse navbar-inverse-collapse">
+            <ul class="nav">
+              <li>
+                <%= link_to("Home", root_path()) %>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <%= link_to("Post Article", new_article_path()) %>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <%= link_to("About Me", home_about_me_path()) %>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <%= link_to("Project", projects_path()) %>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <a href="#"> Account </a>
+<%#= link_to("Bazar", bazars_path()) %>
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <a href="#"> Account </a>
+<%#= link_to("Article", articles_path()) %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <div id="footer">
+
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function()
+      {
+        $("#fancybox-wrap").remove();
+      });
+    </script>
+  </body>
+</html>
