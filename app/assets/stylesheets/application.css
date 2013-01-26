@@ -202,8 +202,8 @@ a.dropdown-toggle:hover
 
 .login
 {
-  padding: 5px !important;
-  color: #6d6d6d;
+    padding: 5px !important;
+    color: #6d6d6d;
 }
 
 .login_down input[type="email"], input[type="password"]
@@ -211,6 +211,56 @@ a.dropdown-toggle:hover
     width: auto !important;
 }
 
+#search_content
+{
+    background: #fff;
+    min-height: 625px;
+    padding: 2px;
+}
+
+.result_item
+{
+    margin-bottom: 3px;
+    padding: 5px 10px 5px 10px;
+    border-bottom: solid 1px #ccc;
+}
+
+.result_item .title
+{
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.result_item .title a
+{
+    padding: 0 !important;
+    display: block;
+}
+
+.article_content
+{
+    padding: 10px !important;
+}
+
+.article_content .title
+{
+    margin-bottom: 10px;
+}
+
+.article_content textarea
+{
+    width: auto;
+}
+
+#new_comment iframe
+{
+    height: 270px !important;
+}
+
+.comments
+{
+    padding-left: 20px;
+}
 
 
 
@@ -244,9 +294,9 @@ a.dropdown-toggle:hover
 }
 
 .tip:after {
-   /* border-bottom: 6px solid transparent;
-    border-right: 6px solid #FFFFFF;
-    border-top: 6px solid transparent; */
+    /* border-bottom: 6px solid transparent;
+     border-right: 6px solid #FFFFFF;
+     border-top: 6px solid transparent; */
     content: "";
     display: inline-block;
     left: -6px;

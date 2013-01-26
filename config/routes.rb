@@ -1,4 +1,6 @@
 MySite::Application.routes.draw do
+  resources :comments
+
   resources :projects
 
   get "articles/index"
@@ -31,6 +33,7 @@ MySite::Application.routes.draw do
   resources :articles do
     collection do
       get "preview"
+      get "search"
     end
   end
 

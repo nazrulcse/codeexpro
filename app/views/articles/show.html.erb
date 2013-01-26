@@ -1,0 +1,16 @@
+<div id="search_content" class="article_content">
+  <div>
+    <div class="title"> <%= @article.title %> </div>
+    <div class="divider"></div>
+    <div> <%= @article.content.html_safe %> </div>
+  </div>
+  <div class="divider"> </div>
+  <div class="comments">
+    <% @article.comments.each do |comment| @article.comments.present? %>
+      <%= comment.text.html_safe if comment.text.present? %>
+    <%end%>
+  </div>
+  <div class="divider"> </div>
+  <h3 class="space">Your Comments</h3>
+  <%= render :partial => "comments/form", :locals => {:@comment => @comment} %>
+</div>

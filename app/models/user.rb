@@ -30,4 +30,6 @@ class User < ActiveRecord::Base
     result
   end
 
+  has_many :comments
+
 end

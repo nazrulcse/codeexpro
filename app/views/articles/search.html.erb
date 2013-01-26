@@ -1,0 +1,17 @@
+<div id="page_title">
+  <span class="text-info"> Search Result For "<%= params[:term] %>" </span>
+</div>
+<div id="search_content">
+  <div class="search_result">
+    <%if @result.present? %>
+      <% @result.each do |result| %>
+        <div class="result_item">
+          <div class="title"> <%= link_to(result.title, article_path(result)) %> </div>
+          <div class="search_content"> <%= truncate(result.content, :length => 200, :omission => link_to("more>>", article_path(result))).html_safe %> </div>
+        </div>
+      <%end%>
+    <%else%>
+      <div class="no_result"> No Search Result Found </div>
+    <%end%>
+  </div>
+</div>

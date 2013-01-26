@@ -9,8 +9,17 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def search
+    @result = Article.search(params[:term])
+  end
+
   def edit
     
+  end
+
+  def show
+   @article = Article.find(params[:id])
+   @comment = @article.comments.build()
   end
 
   def preview

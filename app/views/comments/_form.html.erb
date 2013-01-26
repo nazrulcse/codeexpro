@@ -1,0 +1,37 @@
+<%= form_for(@comment, :remote => true) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+
+  <%= f.hidden_field :article_id %>
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_area :text, :rows => 10, :cols => 105 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  $("textarea").htmlarea({toolbar: ["html", "|", "forecolor", "|", "bold", "italic", "underline", "strikethrough", "|", "subscript", "superscript", "|", "increasefontsize", "decreasefontsize", "orderedlist", "unorderedlist", "|", "indent", "outdent",
+      "justifyleft", "justifycenter", "justifyright",
+      "link", "unlink", "image", "horizontalrule",
+      "p", "h1", "h2", "h3", "h4", "h5", "h6",
+      "cut", "copy", "paste"]});
+</script>
