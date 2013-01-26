@@ -17,6 +17,15 @@ gem 'thin'
 gem "carrierwave"
 gem "json", "1.7.5"
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'oauth2'
+gem 'omniauth-google'
+
+gem 'activemerchant', :require => ['active_merchant', 'active_merchant/billing']
+gem 'authorize-net'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

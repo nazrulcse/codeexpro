@@ -8,8 +8,13 @@ MySite::Application.routes.draw do
   get "home/welcome"
   get "home/about_me"
 
-  devise_for :users
-  
+  devise_for :users do
+    match '/auth/:provider/callback' => 'authentications#create'
+  end
+
+
+  #get '/auth/failure' => 'authentications#failure'
+  #match '/auth/:provider/callback' => 'authentications#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
