@@ -18,16 +18,13 @@
         <%= render :partial => 'shared/search_form' %>
         <div class="user_session">
           <% if current_user.present? %>
-  <%#= link_to("LogOut(#{current_user.name})", destroy_user_session_path()) %>
-
             <div id="profile_pic">
-  <%#= link_to(image_tag(current_user.image_url), "javascript:void(0);", :id => "p_pic") %>
               <ul class="nav pull-right">
-                <li class="dropdown open">
+                <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= image_tag(current_user.image_url) %></a>
                   <ul class="dropdown-menu">
                     <li><%= link_to("#{current_user.name}", edit_user_registration_path()) %></li>
-                    <li><%= link_to("Log Out", destroy_user_session_path()) %></li>
+                    <li><%= link_to("Log Out", destroy_user_session_path(), :method => "delete") %></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
@@ -36,7 +33,21 @@
               </ul>
             </div>
           <%else%>
-            <%= link_to("LogIn", new_user_session_path(), :style => "color:#0088CC;") %> |
+            <ul class="nav pull-left">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= image_tag("login.png", :title => "Login to site") %> |
+                </a>
+                <ul class="dropdown-menu login login_down">
+                  <li>
+                    <%= render :partial => "devise/sessions/new" %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <%= link_to image_tag("fb.png", :title => "Login with facebook"), '/auth/facebook/', :class => 'fb' %> |
+            <%= link_to image_tag("tw.png", :title => "Login with twitter"), '/auth/twitter/', :class => 'tw' %> |
+            <%= link_to image_tag("gplus.png", :title => "Login with twitter"), '/auth/google/', :class => 'gplus' %> |
             <%= link_to("SignUp", new_user_registration_path(), :style => "color:#0088CC;") %>
           <%end%>
         </div>
@@ -85,6 +96,12 @@
       $(document).ready(function()
       {
         $("#fancybox-wrap").remove();
+        $(".fb").tips({message: "Login with facebook"});
+        $(".tw").tips({message: "Login with twitter"});
+        $("#login").click(function()
+        {
+          $(".login").show();
+        });
       });
     </script>
   </body>

@@ -1,0 +1,18 @@
+<h2>Sign in</h2>
+<%= form_for(resource_name, :url => session_path(resource_name)) do |f| %>
+  <div>
+    <%= f.email_field :email, :placeholder => "email" %>
+  </div>
+
+  <div>
+    <%= f.password_field :password, :placeholder => "password" %>
+  </div>
+
+  <div>
+    <%= f.check_box :remember_me %> <span> remember me </span>
+  </div>
+
+  <div class="pull-right"  style="margin: 5px;">
+    <%= f.submit "Sign in", :class => "btn" %>
+  </div>
+<% end %>

@@ -12,13 +12,15 @@
                     side: 'right'
                 }, options);
                 $(this).hover(
-                    function()
+                    function(e)
                     {
                         $(this).append("<div class='tip "+settings.type+"'>" +settings.message+ "</div>");
                         topy = $(".tip").height()/2;
                         $(".tip").css({
-                            top: -topy,
-                            "float": settings.side
+                            top: e.pageY,
+                            "position": "absolute",
+                            left: e.pageX,
+                            width: "auto"
                             });
                     }
                     , function()

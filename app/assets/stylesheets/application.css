@@ -200,6 +200,17 @@ a.dropdown-toggle:hover
     height: 150px;
 }
 
+.login
+{
+  padding: 5px !important;
+  color: #6d6d6d;
+}
+
+.login_down input[type="email"], input[type="password"]
+{
+    width: auto !important;
+}
+
 
 
 
@@ -233,14 +244,14 @@ a.dropdown-toggle:hover
 }
 
 .tip:after {
-    border-bottom: 6px solid transparent;
+   /* border-bottom: 6px solid transparent;
     border-right: 6px solid #FFFFFF;
-    border-top: 6px solid transparent;
+    border-top: 6px solid transparent; */
     content: "";
     display: inline-block;
     left: -6px;
     position: absolute;
-    top: 50%;
+    top: 30%;
 }
 
 .error
